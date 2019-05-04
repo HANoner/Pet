@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qf.pet.mapper.AnimalDetailDao">
+
+	<!-- 通用查询映射结果 -->
+	<resultMap id="BaseResultMap" type="com.qf.pet.entity.AnimalDetail">
+		<id column="id" property="id" />
+		<result column="an_name" property="anName" />
+		<result column="an_type" property="anType" />
+		<result column="an_price" property="anPrice" />
+		<result column="an_area" property="anArea" />
+		<result column="an_img" property="anImg" />
+		<result column="an_color" property="anColor" />
+		<result column="an_age" property="anAge" />
+		<result column="an_text" property="anText" />
+		<result column="an_sex" property="anSex" />
+		<result column="an_count" property="anCount" />
+		<result column="an_parent_id" property="anParentId" />
+		<result column="an_url" property="anUrl" />
+	</resultMap>
+
+</mapper>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qf.pet.mapper.GoodsDetailDao">
+
+	<!-- 通用查询映射结果 -->
+	<resultMap id="BaseResultMap" type="com.qf.pet.entity.GoodsDetail">
+		<id column="id" property="id" />
+		<result column="goods_name" property="goodsName" />
+		<result column="goods_type" property="goodsType" />
+		<result column="goods_price" property="goodsPrice" />
+		<result column="goods_image" property="goodsImage" />
+		<result column="goods_count" property="goodsCount" />
+		<result column="goods_detail" property="goodsDetail" />
+		<result column="goods_brands" property="goodsBrands" />
+		<result column="goods_parent_code" property="goodsParentCode" />
+		<result column="goods_url" property="goodsUrl" />
+		<result column="flag" property="flag" />
+	</resultMap>
+
+</mapper>

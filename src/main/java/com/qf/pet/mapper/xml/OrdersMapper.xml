@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qf.pet.mapper.OrdersDao">
+
+	<!-- 通用查询映射结果 -->
+	<resultMap id="BaseResultMap" type="com.qf.pet.entity.Orders">
+		<id column="id" property="id" />
+		<result column="order_time" property="orderTime" />
+		<result column="order_bidprice" property="orderBidprice" />
+		<result column="order_transactionprice" property="orderTransactionprice" />
+		<result column="order_uid" property="orderUid" />
+		<result column="order_address" property="orderAddress" />
+		<result column="order_animal_id" property="orderAnimalId" />
+		<result column="order_goods_id" property="orderGoodsId" />
+		<result column="order_type" property="orderType" />
+		<result column="order_expressage_flag" property="orderExpressageFlag" />
+		<result column="order_status" property="orderStatus" />
+	</resultMap>
+
+</mapper>

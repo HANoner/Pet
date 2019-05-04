@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qf.pet.mapper.UserDao">
+
+	<!-- 通用查询映射结果 -->
+	<resultMap id="BaseResultMap" type="com.qf.pet.entity.User">
+		<id column="id" property="id" />
+		<result column="username" property="username" />
+		<result column="userpassword" property="userpassword" />
+		<result column="userqq" property="userqq" />
+		<result column="useremail" property="useremail" />
+		<result column="userphone" property="userphone" />
+		<result column="login_flag" property="loginFlag" />
+		<result column="flag" property="flag" />
+	</resultMap>
+
+</mapper>
