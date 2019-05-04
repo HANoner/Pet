@@ -4,7 +4,10 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.qf.pet.entity.GoodsDetail;
 import com.qf.pet.mapper.GoodsDetailDao;
 import com.qf.pet.service.GoodsDetailService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  * <p>
@@ -16,5 +19,10 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class GoodsDetailServiceImpl extends ServiceImpl<GoodsDetailDao, GoodsDetail> implements GoodsDetailService {
-	
+    @Autowired
+    private GoodsDetailDao goodsDetailDao;
+    @Override
+    public List<GoodsDetail> searchBenefit() {
+        return goodsDetailDao.findBenefit();
+    }
 }

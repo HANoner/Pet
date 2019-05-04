@@ -8,6 +8,7 @@ import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.extension.activerecord.Model;
 
 import java.io.Serializable;
+import java.util.Date;
 
 /**
  * <p>
@@ -30,6 +31,8 @@ public class GoodsDetail extends Model<GoodsDetail> {
 	private String goodsType;
 	@TableField("goods_price")
 	private Integer goodsPrice;
+	@TableField("goods_time")//上市时间
+	private Date goodsTime;
 	@TableField("goods_image")
 	private String goodsImage;
 	@TableField("goods_count")
