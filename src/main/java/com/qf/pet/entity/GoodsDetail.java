@@ -1,11 +1,11 @@
 package com.qf.pet.entity;
 
-
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.extension.activerecord.Model;
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -31,7 +31,8 @@ public class GoodsDetail extends Model<GoodsDetail> {
 	private String goodsType;
 	@TableField("goods_price")
 	private Integer goodsPrice;
-	@TableField("goods_time")//上市时间
+	@JsonFormat(pattern = "yyyy-MM-dd",timezone = "GMT+8")
+	@TableField("goods_time")
 	private Date goodsTime;
 	@TableField("goods_image")
 	private String goodsImage;
@@ -78,6 +79,14 @@ public class GoodsDetail extends Model<GoodsDetail> {
 
 	public void setGoodsPrice(Integer goodsPrice) {
 		this.goodsPrice = goodsPrice;
+	}
+
+	public Date getGoodsTime() {
+		return goodsTime;
+	}
+
+	public void setGoodsTime(Date goodsTime) {
+		this.goodsTime = goodsTime;
 	}
 
 	public String getGoodsImage() {
