@@ -16,6 +16,6 @@ import java.util.List;
  * @since 2019-05-04
  */
 public interface AnimalDetailDao extends BaseMapper<AnimalDetail> {
-    @Select("SELECT ani.* from animal_detail an INNER JOIN animal_detail ani ON an.id = ani.an_parent_id where an.id = 1")
+    @Select("SELECT ani.* from animal_detail an INNER JOIN animal_detail ani ON an.id = ani.an_parent_id  where an.id = 1 limit 0,5")
     public List<AnimalDetail> findAllDog();
 }

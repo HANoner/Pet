@@ -1,5 +1,5 @@
 server:
-  port: 8082
+  port: 8083
 # ˝æ›ø‚≈‰÷√
 spring:
   datasource:
@@ -10,7 +10,7 @@ spring:
     type: com.alibaba.druid.pool.DruidDataSource
   jackson:
     date-format: yyyy-MM-dd HH:mm:ss
-  application:
-    name: UserProvider
+#  application:
+#    name: UserProvider
 #mybatis:
 #  mapper-locations:

@@ -1,11 +1,16 @@
 package com.qf.pet.web;
 
+import com.qf.pet.common.util.ResultUtil;
 import com.qf.pet.common.vo.ResultVO;
+import com.qf.pet.entity.AnimalDetail;
 import com.qf.pet.service.AnimalDetailService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 /**
  * <p>
@@ -15,12 +20,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * @author wsy
  * @since 2019-05-04
  */
-@Controller
-@RequestMapping("/qf.pet/animalDetail")
+@RestController
+@RequestMapping("/animalDetail")
 public class AnimalDetailController {
 	@Autowired
     private AnimalDetailService animalDetailService;
 
 	@GetMapping("doglist.do")
-    public ResultVO findAllDog
+    public ResultVO findAllDog (){
+	    return animalDetailService.findAllDog();
+
+    }
 }

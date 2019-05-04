@@ -1,10 +1,10 @@
 package com.qf.pet.common.main;
 
-import com.ttesc.common.constsys.SystemConst;
-import com.ttesc.common.util.AliyunSmsUtil;
-import com.ttesc.common.util.EncryptionUtil;
-import com.ttesc.common.util.RandomUtil;
-import com.ttesc.common.util.TokenUtil;
+
+
+import com.qf.pet.common.constsys.SystemConst;
+import com.qf.pet.common.util.EncryptionUtil;
+import com.qf.pet.common.util.TokenUtil;
 
 import java.util.Random;
 
