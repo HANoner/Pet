@@ -20,4 +20,8 @@ public interface GoodsDetailDao extends BaseMapper<GoodsDetail> {
     @Select("select * from goods_detail where goods_price<10 ORDER BY goods_time desc limit 4")
     public List<GoodsDetail> findBenefit();
 
+    //新品上市
+    @Select("select * from goods_detail where goods_price>0  ORDER BY goods_time  desc LIMIT 4")
+    public List<GoodsDetail> findNewGoods();
+
 }

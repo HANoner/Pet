@@ -25,4 +25,9 @@ public class GoodsDetailServiceImpl extends ServiceImpl<GoodsDetailDao, GoodsDet
     public List<GoodsDetail> searchBenefit() {
         return goodsDetailDao.findBenefit();
     }
+    //新品上架
+    @Override
+    public List<GoodsDetail> searchNewGoods() {
+        return goodsDetailDao.findNewGoods();
+    }
 }

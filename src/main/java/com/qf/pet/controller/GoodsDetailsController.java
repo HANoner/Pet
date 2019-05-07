@@ -22,5 +22,10 @@ public class GoodsDetailsController {
         List<GoodsDetail> list = goodsDetailService.searchBenefit();
         return ResultUtil.exec(true,"优惠信息加载成功",list);
     }
-
+    @ApiOperation(value = "展示新品商品",notes = "实现新品上架商品的展示")
+    @GetMapping("goods/newgoodslist.do")
+    public ResultVO ListNewGoods(){
+        List<GoodsDetail> list = goodsDetailService.searchNewGoods();
+        return ResultUtil.exec(true,"新品商品查询完毕",list);
+    }
 }

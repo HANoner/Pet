@@ -16,4 +16,7 @@ import java.util.List;
 public interface GoodsDetailService extends IService<GoodsDetail> {
     //优惠商品
     public List<GoodsDetail> searchBenefit();
+
+    //查找新品上市商品
+    public List<GoodsDetail> searchNewGoods();
 }
