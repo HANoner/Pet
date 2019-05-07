@@ -4,7 +4,10 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.qf.pet.entity.Brand;
 import com.qf.pet.mapper.BrandDao;
 import com.qf.pet.service.BrandService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  * <p>
@@ -16,5 +19,10 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class BrandServiceImpl extends ServiceImpl<BrandDao, Brand> implements BrandService {
-	
+    @Autowired
+    private BrandDao brandDao;
+    @Override
+    public List<Brand> searchAllBrand() {
+        return brandDao.findAll();
+    }
 }
