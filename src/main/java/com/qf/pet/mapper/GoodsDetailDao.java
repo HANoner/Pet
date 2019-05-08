@@ -2,6 +2,7 @@ package com.qf.pet.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.qf.pet.entity.GoodsDetail;
+import com.qf.pet.vo.VGoodsType;
 import org.apache.ibatis.annotations.Select;
 
 import java.util.List;
@@ -23,5 +24,12 @@ public interface GoodsDetailDao extends BaseMapper<GoodsDetail> {
     //新品上市
     @Select("select * from goods_detail where goods_price>0  ORDER BY goods_time  desc LIMIT 4")
     public List<GoodsDetail> findNewGoods();
+
+    //绑定界面信息
+    @Select("SELECT c.id cid,c.goods_name cname,c.goods_image imgUrl, p.id pid, p.goods_name pname from goods_detail p \n" +
+            "INNER JOIN goods_detail c\n" +
+            "on c.goods_parent_code = p.id\n" +
+            "where p.goods_type = 1 and c.flag = 2")
+    public List<VGoodsType> findType();
 
 }

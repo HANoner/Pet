@@ -4,6 +4,7 @@ import com.qf.pet.common.util.ResultUtil;
 import com.qf.pet.common.vo.ResultVO;
 import com.qf.pet.entity.GoodsDetail;
 import com.qf.pet.service.GoodsDetailService;
+import com.qf.pet.vo.VGoodsType;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,5 +38,10 @@ public class GoodsDetailController {
         List<GoodsDetail> list = goodsDetailService.searchNewGoods();
         return ResultUtil.exec(true,"新品商品查询完毕",list);
     }
-	
+    @ApiOperation(value = "猫猫商品类型展示",notes = "实现猫猫商品类型展示")
+    @GetMapping("goods/catTypelist.do")
+    public ResultVO ListCatType(){
+        List<VGoodsType> list = goodsDetailService.searchType();
+        return ResultUtil.exec(true,"猫猫商品类型查询完毕",list);
+    }
 }

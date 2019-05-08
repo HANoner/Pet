@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.qf.pet.entity.GoodsDetail;
 import com.qf.pet.mapper.GoodsDetailDao;
 import com.qf.pet.service.GoodsDetailService;
+import com.qf.pet.vo.VGoodsType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -29,5 +30,10 @@ public class GoodsDetailServiceImpl extends ServiceImpl<GoodsDetailDao, GoodsDet
     @Override
     public List<GoodsDetail> searchNewGoods() {
         return goodsDetailDao.findNewGoods();
+    }
+
+    @Override
+    public List<VGoodsType> searchType() {
+        return goodsDetailDao.findType();
     }
 }
