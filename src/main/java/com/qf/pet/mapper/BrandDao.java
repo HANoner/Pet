@@ -17,7 +17,7 @@ import java.util.List;
  */
 public interface BrandDao extends BaseMapper<Brand> {
     //展示品牌信息
-    @Select("SELECT * from brand ")
-    public List<Brand> findAll();
+    @Select("SELECT * from brand limit #{limit}")
+    public List<Brand> findAll(int limit);
 
 }

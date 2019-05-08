@@ -22,7 +22,7 @@ public class BrandServiceImpl extends ServiceImpl<BrandDao, Brand> implements Br
     @Autowired
     private BrandDao brandDao;
     @Override
-    public List<Brand> searchAllBrand() {
-        return brandDao.findAll();
+    public List<Brand> searchAllBrand(int limit) {
+        return brandDao.findAll(limit);
     }
 }

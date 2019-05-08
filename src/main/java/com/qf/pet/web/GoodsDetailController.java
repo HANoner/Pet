@@ -7,8 +7,8 @@ import com.qf.pet.service.GoodsDetailService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
@@ -20,7 +20,7 @@ import java.util.List;
  * @author wsy
  * @since 2019-05-04
  */
-@Controller
+@RestController
 @Api(value = "商品展示操作" ,tags = "操作商品")
 public class GoodsDetailController {
     @Autowired
