@@ -30,4 +30,9 @@ public class BrandServiceImpl extends ServiceImpl<BrandDao, Brand> implements Br
     public List<Brand> searchStaple(int fromIndex, int toIndex) {
         return brandDao.findStaple(fromIndex,toIndex);
     }
+
+    @Override
+    public List<Brand> searchSnacks(int fromIndex, int toIndex) {
+        return brandDao.findStaple(fromIndex,toIndex);
+    }
 }

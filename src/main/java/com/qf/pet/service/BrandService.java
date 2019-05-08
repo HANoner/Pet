@@ -18,5 +18,7 @@ public interface BrandService extends IService<Brand> {
     public List<Brand> searchAllBrand(int limit);
     //主粮品牌展示
     public List<Brand> searchStaple(int fromIndex,int toIndex);
+    //零食品牌展示
+    public List<Brand> searchSnacks(int fromIndex,int toIndex);
 
 }
