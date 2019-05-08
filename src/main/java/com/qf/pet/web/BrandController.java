@@ -32,5 +32,13 @@ public class BrandController {
         List<Brand> list = brandService.searchAllBrand(12);
         return ResultUtil.exec(true,"品牌信息展示成功",list);
     }
+
+    //主粮品牌展示
+    @ApiOperation(value = "主粮品牌信息展示",notes = "实现展示主粮品牌信息")
+    @GetMapping("brand/staplelist.do")
+    public ResultVO StapleList(){
+        List<Brand> list = brandService.searchStaple(12,6);
+        return ResultUtil.exec(true,"主粮品牌信息展示成功",list);
+    }
 	
 }

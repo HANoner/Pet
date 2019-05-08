@@ -25,4 +25,9 @@ public class BrandServiceImpl extends ServiceImpl<BrandDao, Brand> implements Br
     public List<Brand> searchAllBrand(int limit) {
         return brandDao.findAll(limit);
     }
+
+    @Override
+    public List<Brand> searchStaple(int fromIndex, int toIndex) {
+        return brandDao.findStaple(fromIndex,toIndex);
+    }
 }

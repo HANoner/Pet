@@ -16,5 +16,7 @@ import java.util.List;
 public interface BrandService extends IService<Brand> {
     //展示所有品牌信息
     public List<Brand> searchAllBrand(int limit);
-	
+    //主粮品牌展示
+    public List<Brand> searchStaple(int fromIndex,int toIndex);
+
 }
