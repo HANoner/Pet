@@ -36,4 +36,9 @@ public class GoodsDetailServiceImpl extends ServiceImpl<GoodsDetailDao, GoodsDet
     public List<VGoodsType> searchType() {
         return goodsDetailDao.findType();
     }
+
+    @Override
+    public List<GoodsDetail> searchByTypeId(int tid) {
+        return goodsDetailDao.findByTypeId(tid);
+    }
 }

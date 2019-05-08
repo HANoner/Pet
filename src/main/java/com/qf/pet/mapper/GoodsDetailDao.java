@@ -3,6 +3,7 @@ package com.qf.pet.mapper;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.qf.pet.entity.GoodsDetail;
 import com.qf.pet.vo.VGoodsType;
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 
 import java.util.List;
@@ -31,5 +32,12 @@ public interface GoodsDetailDao extends BaseMapper<GoodsDetail> {
             "on c.goods_parent_code = p.id\n" +
             "where p.goods_type = 1 and c.flag = 2")
     public List<VGoodsType> findType();
+
+    //点击商品类型图片之后跳转到相对应商品
+    @Select("SELECT c.* from goods_detail c\n" +
+            "INNER JOIN goods_detail p\n" +
+            "on c.goods_parent_code = p.id\n" +
+            "where c.flag = 3 and p.id = #{tid}")
+    public List<GoodsDetail> findByTypeId(@Param("tid") int tid);
 
 }

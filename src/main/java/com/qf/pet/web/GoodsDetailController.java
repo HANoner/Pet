@@ -7,8 +7,10 @@ import com.qf.pet.service.GoodsDetailService;
 import com.qf.pet.vo.VGoodsType;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -43,5 +45,12 @@ public class GoodsDetailController {
     public ResultVO ListCatType(){
         List<VGoodsType> list = goodsDetailService.searchType();
         return ResultUtil.exec(true,"猫猫商品类型查询完毕",list);
+    }
+
+    @ApiOperation(value = "相应类型商品展示",notes = "实现相应类型商品展示")
+    @GetMapping("goods/findByTypeId.do")
+    public ResultVO findByTypeId(@ApiParam(value = "传入类型id" ) @RequestParam("tid") int tid){
+        List<GoodsDetail> list = goodsDetailService.searchByTypeId(tid);
+        return ResultUtil.exec(true,"相应类型商品查询完毕",list);
     }
 }

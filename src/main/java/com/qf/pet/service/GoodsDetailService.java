@@ -23,4 +23,6 @@ public interface GoodsDetailService extends IService<GoodsDetail> {
 
     //猫猫商品类型展示
     public List<VGoodsType> searchType();
+    //点击商品类型图片之后跳转到相对应商品
+    public List<GoodsDetail> searchByTypeId(int tid);
 }
