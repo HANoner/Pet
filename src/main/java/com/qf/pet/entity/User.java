@@ -1,6 +1,5 @@
 package com.qf.pet.entity;
 
-
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
@@ -15,7 +14,7 @@ import java.io.Serializable;
  * </p>
  *
  * @author wsy
- * @since 2019-05-04
+ * @since 2019-05-09
  */
 @TableName("user")
 public class User extends Model<User> {

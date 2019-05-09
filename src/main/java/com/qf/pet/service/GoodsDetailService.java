@@ -2,7 +2,6 @@ package com.qf.pet.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.qf.pet.entity.GoodsDetail;
-import com.qf.pet.vo.VGoodsType;
 
 import java.util.List;
 
@@ -21,8 +20,7 @@ public interface GoodsDetailService extends IService<GoodsDetail> {
     //查找新品上市商品
     public List<GoodsDetail> searchNewGoods();
 
-    //猫猫商品类型展示
-    public List<VGoodsType> searchType();
+
     //点击商品类型图片之后跳转到相对应商品
     public List<GoodsDetail> searchByTypeId(int tid);
 }

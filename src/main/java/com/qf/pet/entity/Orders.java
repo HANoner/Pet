@@ -4,9 +4,8 @@ import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.extension.activerecord.Model;
 
-import java.util.Date;
-
 import java.io.Serializable;
+import java.util.Date;
 
 /**
  * <p>
@@ -14,7 +13,7 @@ import java.io.Serializable;
  * </p>
  *
  * @author wsy
- * @since 2019-05-04
+ * @since 2019-05-09
  */
 @TableName("orders")
 public class Orders extends Model<Orders> {

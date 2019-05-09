@@ -5,7 +5,6 @@ import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.extension.activerecord.Model;
-import com.fasterxml.jackson.annotation.JsonFormat;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -16,7 +15,7 @@ import java.util.Date;
  * </p>
  *
  * @author wsy
- * @since 2019-05-04
+ * @since 2019-05-09
  */
 @TableName("goods_detail")
 public class GoodsDetail extends Model<GoodsDetail> {
@@ -27,11 +26,8 @@ public class GoodsDetail extends Model<GoodsDetail> {
 	private Integer id;
 	@TableField("goods_name")
 	private String goodsName;
-	@TableField("goods_type")
-	private String goodsType;
 	@TableField("goods_price")
 	private Integer goodsPrice;
-	@JsonFormat(pattern = "yyyy-MM-dd",timezone = "GMT+8")
 	@TableField("goods_time")
 	private Date goodsTime;
 	@TableField("goods_image")
@@ -40,13 +36,8 @@ public class GoodsDetail extends Model<GoodsDetail> {
 	private Integer goodsCount;
 	@TableField("goods_detail")
 	private String goodsDetail;
-	@TableField("goods_brands")
-	private String goodsBrands;
-	@TableField("goods_parent_code")
-	private Integer goodsParentCode;
-	@TableField("goods_url")
-	private String goodsUrl;
-	private Integer flag;
+	@TableField("goods_brand")
+	private Integer goodsBrand;
 
 
 	public Integer getId() {
@@ -63,14 +54,6 @@ public class GoodsDetail extends Model<GoodsDetail> {
 
 	public void setGoodsName(String goodsName) {
 		this.goodsName = goodsName;
-	}
-
-	public String getGoodsType() {
-		return goodsType;
-	}
-
-	public void setGoodsType(String goodsType) {
-		this.goodsType = goodsType;
 	}
 
 	public Integer getGoodsPrice() {
@@ -113,36 +96,12 @@ public class GoodsDetail extends Model<GoodsDetail> {
 		this.goodsDetail = goodsDetail;
 	}
 
-	public String getGoodsBrands() {
-		return goodsBrands;
+	public Integer getGoodsBrand() {
+		return goodsBrand;
 	}
 
-	public void setGoodsBrands(String goodsBrands) {
-		this.goodsBrands = goodsBrands;
-	}
-
-	public Integer getGoodsParentCode() {
-		return goodsParentCode;
-	}
-
-	public void setGoodsParentCode(Integer goodsParentCode) {
-		this.goodsParentCode = goodsParentCode;
-	}
-
-	public String getGoodsUrl() {
-		return goodsUrl;
-	}
-
-	public void setGoodsUrl(String goodsUrl) {
-		this.goodsUrl = goodsUrl;
-	}
-
-	public Integer getFlag() {
-		return flag;
-	}
-
-	public void setFlag(Integer flag) {
-		this.flag = flag;
+	public void setGoodsBrand(Integer goodsBrand) {
+		this.goodsBrand = goodsBrand;
 	}
 
 	@Override
