@@ -1,6 +1,7 @@
 package com.qf.pet.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.qf.pet.common.vo.ResultVO;
 import com.qf.pet.entity.GoodsDetail;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;

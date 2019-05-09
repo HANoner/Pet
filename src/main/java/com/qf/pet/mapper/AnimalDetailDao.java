@@ -18,4 +18,19 @@ import java.util.List;
 public interface AnimalDetailDao extends BaseMapper<AnimalDetail> {
     @Select("SELECT ani.* from animal_detail an INNER JOIN animal_detail ani ON an.id = ani.an_parent_id  where an.id = 1 limit 0,5")
     public List<AnimalDetail> findAllDog();
+
+    @Select("SELECT ani.* from animal_detail an INNER JOIN animal_detail ani ON an.id = ani.an_parent_id  where an.id = 2 limit 0,5")
+    public List<AnimalDetail> findFiveCat();
+
+    @Select("SELECT ani.* from animal_detail an INNER JOIN animal_detail ani ON an.id = ani.an_parent_id   limit 0,10")
+    public List<AnimalDetail> findAll();
+
+    @Select("SELECT ani.* from animal_detail an INNER JOIN animal_detail ani ON an.id = ani.an_parent_id  where an.id = 1")
+    public List<AnimalDetail> findclassAllDog();
+
+
+    @Select("SELECT ani.* from animal_detail an INNER JOIN animal_detail ani ON an.id = ani.an_parent_id  where an.id = 2")
+    public List<AnimalDetail> findclassAllCat();
+
+
 }

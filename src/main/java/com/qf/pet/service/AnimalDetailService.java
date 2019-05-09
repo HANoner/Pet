@@ -17,4 +17,9 @@ import java.util.Map;
  */
 public interface AnimalDetailService extends IService<AnimalDetail> {
     public ResultVO findAllDog();
+    public ResultVO findFiveCat();
+    public ResultVO findAll();
+    public ResultVO dogclassselect();
+    public ResultVO catclassselect();
+    public ResultVO allclassselect();
 }

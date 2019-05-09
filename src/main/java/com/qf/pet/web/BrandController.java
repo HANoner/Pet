@@ -48,5 +48,5 @@ public class BrandController {
         List<Brand> list = brandService.searchStaple(18,6);
         return ResultUtil.exec(true,"零食品牌信息展示成功",list);
     }
-	
+
 }
