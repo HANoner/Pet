@@ -24,7 +24,8 @@ public class GoodsTypeServiceImpl extends ServiceImpl<GoodsTypeDao, GoodsType> i
     @Autowired
     private GoodsTypeDao goodsTypeDao;
     @Override
-    public List<VGoodsType> searchType() {
-        return goodsTypeDao.findType1();
+    public List<VGoodsType> searchType(int type)
+    {
+        return goodsTypeDao.findType1(type);
     }
 }

@@ -15,7 +15,7 @@ import java.util.List;
  * @since 2019-05-09
  */
 public interface GoodsTypeService extends IService<GoodsType> {
-    //猫猫商品类型展示
-    public List<VGoodsType> searchType();
+    //商品类型展示
+    public List<VGoodsType> searchType(int type);
 	
 }

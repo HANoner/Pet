@@ -20,11 +20,11 @@
 			<result property="imgUrl" column="imgUrl"/>
 		</collection>
 	</resultMap>
-	<select id="findType1"  resultMap="menuMap">
+	<select id="findType1"  parameterType="int" resultMap="menuMap">
         SELECT p.id pid,p.type_name pname,c.id cid,c.type_name cname,c.type_image imgUrl
         from goods_type c
         INNER JOIN goods_type p
-        on c.type_parent_code = p.id where c.flag = 2 and p.type = 1
+        on c.type_parent_code = p.id where c.flag = 2 and p.type = #{type}
     </select>
 
 
