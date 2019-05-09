@@ -1,7 +1,6 @@
 package com.qf.pet.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.qf.pet.common.vo.ResultVO;
 import com.qf.pet.entity.GoodsDetail;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
@@ -37,4 +36,8 @@ public interface GoodsDetailDao extends BaseMapper<GoodsDetail> {
     //商城商品搜索
     @Select("select * from goods_detail g where g.goods_name like  '%${goodsName}%'")
     public List<GoodsDetail> findByName(@Param("goodsName") String goodsName);
+
+    //在页面点击图片根据id进行商品查找进入商品详情页面
+    @Select("SELECT * from goods_detail where id = #{id}")
+    public GoodsDetail findByGoodsId(@Param("id") int id);
 }

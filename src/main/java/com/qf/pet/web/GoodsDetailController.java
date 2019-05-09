@@ -54,4 +54,11 @@ public class GoodsDetailController {
         return ResultUtil.exec(true,"相应类型商品查询完毕",list);
     }
 
+    @ApiOperation(value = "根据商品id查找商品",notes = "在页面点击商品图片进行详细信息页面跳转")
+    @GetMapping("goods/findByGoodsId.do")
+    public ResultVO findByGoodsId(@ApiParam(value = "传入商品id" ) @RequestParam("id") int id){
+        GoodsDetail goodsDetail = goodsDetailService.searchByGoodsId(id);
+        return ResultUtil.exec(true,"相应类型商品查询完毕",goodsDetail);
+    }
+
 }

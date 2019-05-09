@@ -26,4 +26,7 @@ public interface GoodsDetailService extends IService<GoodsDetail> {
 
     //    //商城商品搜索
     public List<GoodsDetail> searchByName(String goodsName);
+
+    //在页面点击图片根据id进行商品查找进入商品详情页面
+    public GoodsDetail searchByGoodsId(int id);
 }
