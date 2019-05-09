@@ -24,8 +24,9 @@ public class Sms_Main {
 //        int code=RandomUtil.createNum(6);
 //        System.out.println(AliyunSmsUtil.sendSms("13523413578",code));
 //
-        //System.out.println(EncryptionUtil.createAESKEY());
-        System.out.println(TokenUtil.createToken(1,"dsdsdsd"));
-        System.out.println(EncryptionUtil.AESDec(SystemConst.TOKENKEY,"a8pirM0ZXxrbYGGNng52JHbB2g9BcbkmjXel58pYsqjMXqTGH0z+20aOFnSQCR5L/b9O0xEJneTyOcQuGFbrtxMAHyThWjxjuF+T90JdNF3xqtqqfQaEOsQwFuLcYoZn"));
+        System.out.println(EncryptionUtil.createAESKEY());
+       // System.out.println(TokenUtil.createToken(1,"dsdsdsd"));
+       // System.out.println(EncryptionUtil.AESDec(SystemConst.TOKENKEY,"a8pirM0ZXxrbYGGNng52JHbB2g9BcbkmjXel58pYsqjMXqTGH0z+20aOFnSQCR5L/b9O0xEJneTyOcQuGFbrtxMAHyThWjxjuF+T90JdNF3xqtqqfQaEOsQwFuLcYoZn"));
+
     }
 }

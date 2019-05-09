@@ -1,5 +1,9 @@
 package com.qf.pet.common.util;
 
+import com.google.common.annotations.Beta;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.stereotype.Component;
 import redis.clients.jedis.JedisPool;
 import redis.clients.jedis.JedisPoolConfig;
 
@@ -7,14 +11,15 @@ import redis.clients.jedis.JedisPoolConfig;
  *@Author feri
  *@Date Created in 2019/4/25 10:14
  */
+@Configuration
 public class JedisUtil {
     private JedisPool jedisPool;
-    public JedisUtil(String host,int port,String pass){
+    public JedisUtil(){
         JedisPoolConfig config=new JedisPoolConfig();
         config.setMaxIdle(300);//空闲时间
         config.setMaxTotal(1000);//最大连接
         config.setMinIdle(100);
-        jedisPool=new JedisPool(config,host,port,1000,pass);
+        jedisPool=new JedisPool(config,"39.105.189.141",6379,1000,"qfjava");
     }
     //新增
     public String setStr(String key,String value){

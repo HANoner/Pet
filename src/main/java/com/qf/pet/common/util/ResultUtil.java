@@ -22,5 +22,7 @@ public class ResultUtil {
     public static ResultVO setOK(String msg){
         return exec(true,msg,null);
     }
-
+    public static ResultVO setERROR(String msg){
+        return exec(true,msg,null);
+    }
 }

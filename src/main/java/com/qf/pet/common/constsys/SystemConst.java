@@ -14,7 +14,7 @@ public class SystemConst {
     public static final String YZMMB="SMS_114390520";
 
     //秘钥
-    public static final String TOKENKEY="PTeW11QpXc+IKUAcO8e8FA==";
+    public static final String TOKENKEY="EFIcR03b42CjG4c3YdOFNA==";
 
 
 
