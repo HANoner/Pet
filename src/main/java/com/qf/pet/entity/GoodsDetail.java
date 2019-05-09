@@ -38,6 +38,8 @@ public class GoodsDetail extends Model<GoodsDetail> {
 	private String goodsDetail;
 	@TableField("goods_brand")
 	private Integer goodsBrand;
+	@TableField("goods_typeId")
+	private Integer goodsTypeId;
 
 
 	public Integer getId() {
@@ -102,6 +104,14 @@ public class GoodsDetail extends Model<GoodsDetail> {
 
 	public void setGoodsBrand(Integer goodsBrand) {
 		this.goodsBrand = goodsBrand;
+	}
+
+	public Integer getGoodsTypeId() {
+		return goodsTypeId;
+	}
+
+	public void setGoodsTypeId(Integer goodsTypeId) {
+		this.goodsTypeId = goodsTypeId;
 	}
 
 	@Override

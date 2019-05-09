@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qf.pet.mapper.GoodsTypeDao">
+
+	<!-- 通用查询映射结果 -->
+	<resultMap id="BaseResultMap" type="com.qf.pet.entity.GoodsType">
+		<id column="id" property="id" />
+		<result column="type_name" property="typeName" />
+		<result column="type" property="type" />
+		<result column="type_image" property="typeImage" />
+		<result column="type_parent_code" property="typeParentCode" />
+		<result column="flag" property="flag" />
+	</resultMap>
+	<resultMap type="com.qf.pet.vo.VGoodsType" id="menuMap">
+		<id property="pid" column="pid"/>
+		<result property="pname" column="pname"/>
+		<collection property="clist" javaType="java.util.ArrayList" ofType="com.qf.pet.vo.VGoodsType">
+			<result property="pid" column="cid"/>
+			<result property="pname" column="cname"/>
+			<result property="imgUrl" column="imgUrl"/>
+		</collection>
+	</resultMap>
+	<select id="findType1"  resultMap="menuMap">
+        SELECT p.id pid,p.type_name pname,c.id cid,c.type_name cname,c.type_image imgUrl
+        from goods_type c
+        INNER JOIN goods_type p
+        on c.type_parent_code = p.id where c.flag = 2 and p.type = 1
+    </select>
+
+
+</mapper>

@@ -16,6 +16,6 @@ import java.util.List;
  */
 public interface GoodsTypeDao extends BaseMapper<GoodsType> {
     //绑定界面信息
-    public List<VGoodsType> findType();
+    public List<VGoodsType> findType1();
 
 }

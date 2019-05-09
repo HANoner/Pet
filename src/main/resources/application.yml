@@ -1,16 +1,23 @@
 server:
   port: 8083
-#Êý¾Ý¿âÅäÖÃ
+#ï¿½ï¿½ï¿½Ý¿ï¿½ï¿½ï¿½ï¿½ï¿½
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://10.8.159.12:3306/db_pet_store?serverTimezone=UTC&characterEncoding=UTF8
+    url: jdbc:mysql://39.96.58.124:3306/db_pet_store?serverTimezone=UTC&characterEncoding=UTF8
     username: root
-    password: 123456
+    password: qfjava
     type: com.alibaba.druid.pool.DruidDataSource
   jackson:
     date-format: yyyy-MM-dd HH:mm:ss
 #  application:
 #    name: UserProvider
 #mybatis:
-#  mapper-locations:
+#  mapper-locations:classpath*: /xml/*Mapper.xml
+
+mybatis-plus:
+  mapper-locations: classpath*:com/qf/pet/mapper/xml/*.xml
+#  type-aliases-package: com.qf.pet.entity,com.qf.pet.vo
+
+
+
