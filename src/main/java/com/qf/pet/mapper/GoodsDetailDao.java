@@ -25,12 +25,12 @@ public interface GoodsDetailDao extends BaseMapper<GoodsDetail> {
     @Select("select * from goods_detail where goods_price>0  ORDER BY goods_time  desc LIMIT 4")
     public List<GoodsDetail> findNewGoods();
 
-
     //点击商品类型图片之后跳转到相对应商品
-    @Select("SELECT c.* from goods_detail c\n" +
-            "INNER JOIN goods_detail p\n" +
-            "on c.goods_parent_code = p.id\n" +
-            "where c.flag = 3 and p.id = #{tid}")
+    @Select("\n" +
+            "SELECT gd.* from goods_detail gd\n" +
+            "INNER JOIN goods_type gt\n" +
+            "on gd.goods_typeId = gt.id \n" +
+            "where gt.id = #{tid}")
     public List<GoodsDetail> findByTypeId(@Param("tid") int tid);
 
 }
