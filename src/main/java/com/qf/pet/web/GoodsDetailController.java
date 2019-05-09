@@ -47,4 +47,11 @@ public class GoodsDetailController {
         List<GoodsDetail> list = goodsDetailService.searchByTypeId(tid);
         return ResultUtil.exec(true,"相应类型商品查询完毕",list);
     }
+    @ApiOperation(value = "模糊查询商品",notes = "实现模糊查询商品展示")
+    @GetMapping("goods/findByName.do")
+    public ResultVO findByGoodsName(@ApiParam(value = "传入模糊的商品名字" ) @RequestParam("goodsName") String goodsName){
+        List<GoodsDetail> list = goodsDetailService.searchByName(goodsName);
+        return ResultUtil.exec(true,"相应类型商品查询完毕",list);
+    }
+
 }

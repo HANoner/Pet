@@ -37,4 +37,9 @@ public class GoodsDetailServiceImpl extends ServiceImpl<GoodsDetailDao, GoodsDet
     public List<GoodsDetail> searchByTypeId(int tid) {
         return goodsDetailDao.findByTypeId(tid);
     }
+
+    @Override
+    public List<GoodsDetail> searchByName(String goodsName) {
+        return goodsDetailDao.findByName(goodsName);
+    }
 }

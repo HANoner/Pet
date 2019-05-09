@@ -33,4 +33,7 @@ public interface GoodsDetailDao extends BaseMapper<GoodsDetail> {
             "where gt.id = #{tid}")
     public List<GoodsDetail> findByTypeId(@Param("tid") int tid);
 
+    //商城商品搜索
+    @Select("select * from goods_detail g where g.goods_name like  '%${goodsName}%'")
+    public List<GoodsDetail> findByName(@Param("goodsName") String goodsName);
 }
