@@ -5,6 +5,7 @@ import com.qf.pet.service.UserService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -31,18 +32,18 @@ public class UserController {
 
     @GetMapping("user/codemsg")
     @ApiOperation(value = "验证码请求接口",notes = "获取验证码")
-    public ResultVO sendMsg(@ApiParam(value = "user",name = "userphone") String phone){
+    public ResultVO sendMsg(String phone){
         return userService.sendMsgCode(phone);
     }
     @PostMapping("user/register")
     @ApiOperation(value = "用户注册接口",notes = "用户注册接口")
-    public ResultVO register(@ApiParam(value = "user",name = "username") String name,@ApiParam(name = "userphone") String phone,@ApiParam(value = "获取到的验证码",name = "code") String code,@ApiParam(name = "password") String password){
+    public ResultVO register( String name,String phone, String code,String password){
         return userService.register(name,phone,code,password);
     }
 
     @PostMapping("user/login.do")
     @ApiOperation(value = "用户登陆",notes = "用户登陆接口")
-    public ResultVO login(@ApiParam(value = "user",name = "userphone") String phone, @ApiParam(name = "password") String password, HttpServletResponse response){
+    public ResultVO login(String phone,String password, HttpServletResponse response){
         return  userService.login(phone,password,response);
     }
 
@@ -53,7 +54,12 @@ public class UserController {
     }
     @PostMapping("user/findlosepwd")
     @ApiOperation(value = "找回密码",notes = "用户根据手机短信验证找回密码接口")
-    public ResultVO findlosepwd(@ApiParam(value = "user",name = "userphone") String phone,@ApiParam(value = "password") String pwd,@ApiParam(value = "code") String code){
+    public ResultVO findlosepwd( String phone,String pwd,String code){
         return userService.findLosePwd(phone,pwd,code);
+    }
+    @GetMapping("user/findpwdCode")
+    @ApiOperation(value = "找回密码的验证码接口",notes = "用户找回密码短信接口")
+    public ResultVO findpwdCode(String phone){
+        return userService.findpwdCode(phone);
     }
 }

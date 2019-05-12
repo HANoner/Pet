@@ -1,18 +1,15 @@
 package com.qf.pet.service.impl;
 
 import com.alibaba.fastjson.JSON;
-import com.baomidou.mybatisplus.core.conditions.Wrapper;
+
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.qf.pet.common.constsys.SystemConst;
 import com.qf.pet.common.util.*;
 import com.qf.pet.common.vo.ResultVO;
 import com.qf.pet.common.vo.TokenVO;
 import com.qf.pet.entity.User;
 import com.qf.pet.mapper.UserDao;
 import com.qf.pet.service.UserService;
-import org.apache.catalina.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -44,8 +41,7 @@ public class UserServiceImpl extends ServiceImpl<UserDao, User> implements UserS
         } else {
             int code = RandomUtil.createNum(6);
             boolean b = AliyunSmsUtil.sendSms(phone, code);
-
-            jedisUtil.setStr("msgcode",Integer.toString(code));
+            jedisUtil.setStr("msgcode",Integer.toString(code),180);
             //session.setAttribute("msgcode",Integer.toString(code));
             return ResultUtil.exec(b, "验证码",code);
         }
@@ -59,14 +55,17 @@ public class UserServiceImpl extends ServiceImpl<UserDao, User> implements UserS
 	    user.setUserphone(phone);
 
         String  msgcode = jedisUtil.getStr("msgcode");
-        if (msgcode.equals(code)){
-            return ResultUtil.exec(userDao.insert(user)>=1,"注册成功",null);
+        User u = userDao.selectOne(new QueryWrapper<>(user).eq("userphone", phone));
+        if (msgcode == null && msgcode == "") {
+            return ResultUtil.setERROR("验证码已过期，请重新发送");
+        }else if (u != null){
+            return ResultUtil.setERROR("该手机号已经注册过");
+        }else if (!msgcode.equals(code)){
+            return ResultUtil.exec(false, "验证码错误", null);
         }else {
-            return ResultUtil.exec(false,"验证码错误",null);
+            return ResultUtil.exec(userDao.insert(user) >= 1, "注册成功", null);
+
         }
-
-
-
     }
 
     @Override
@@ -110,16 +109,32 @@ public class UserServiceImpl extends ServiceImpl<UserDao, User> implements UserS
 
     @Override
     public ResultVO findLosePwd(String phone, String pwd, String code) {
-        String msgcode = jedisUtil.getStr("msgcode");
+        String msgcode = jedisUtil.getStr("findpwdcode");
         User user = userDao.selectOne(new QueryWrapper<User>().eq("userphone", phone));
-        user.setUserpassword(pwd);
         if (user == null){
             return ResultUtil.setERROR("该用户不存在，请检查手机号是否输入正确");
-        }else if (!msgcode.equals(code)){
+        }else if (msgcode == null && msgcode == "" ){
+            return ResultUtil.setERROR("验证码已过期，请重新发送");
+        }else if(!msgcode.equals(code)){
             return ResultUtil.setERROR("验证码错误");
         }else {
-             return ResultUtil.exec(userDao.updateUserPwd(pwd,phone)>1,"修改密码成功",null);
+            return ResultUtil.exec(userDao.updateUserPwd(pwd,phone)>1,"修改密码成功",null);
         }
+
+    }
+
+    @Override
+    public ResultVO findpwdCode(String phone) {
+        User user = userDao.selectOne(new QueryWrapper<User>().eq("userphone", phone));
+        if (user == null) {
+            return ResultUtil.setERROR("该手机号还没有注册，不能找回密码");
+        } else {
+            int code = RandomUtil.createNum(6);
+            boolean b = AliyunSmsUtil.sendSms(phone, code);
+            jedisUtil.setStr("findpwdcode", JSON.toJSONString(code), 180);
+            return ResultUtil.exec(b, "发送成功,三分钟内有效", code);
+        }
+
 
     }
 

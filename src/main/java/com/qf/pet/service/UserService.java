@@ -23,4 +23,5 @@ public interface UserService extends IService<User> {
     ResultVO login(String phone,String password,HttpServletResponse response);
     ResultVO logout(HttpServletRequest request,HttpServletResponse response);
     ResultVO findLosePwd(String phone,String pwd,String code);
+    ResultVO findpwdCode(String phone);
 }

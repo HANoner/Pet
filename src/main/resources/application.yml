@@ -1,6 +1,5 @@
 server:
   port: 8083
-#���ݿ�����
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
@@ -10,14 +9,9 @@ spring:
     type: com.alibaba.druid.pool.DruidDataSource
   jackson:
     date-format: yyyy-MM-dd HH:mm:ss
-#  application:
-#    name: UserProvider
-#mybatis:
-#  mapper-locations:classpath*: /xml/*Mapper.xml
-
 mybatis-plus:
   mapper-locations: classpath*:com/qf/pet/mapper/xml/*.xml
-#  type-aliases-package: com.qf.pet.entity,com.qf.pet.vo
+
 
 
 

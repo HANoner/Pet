@@ -5,7 +5,6 @@ import com.qf.pet.common.vo.ResultVO;
 import com.qf.pet.entity.AnimalDetail;
 import com.qf.pet.mapper.AnimalDetailDao;
 import com.qf.pet.service.AnimalDetailService;
-import com.sun.org.apache.regexp.internal.RE;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
